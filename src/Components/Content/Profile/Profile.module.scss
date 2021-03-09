@@ -1,0 +1,112 @@
+.profileHead{
+  background: url("../img/back2.png")no-repeat left / cover;
+  .profileLogo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 0 20px 0;
+  }
+  .profileLogo button{
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  .profileImg{
+    margin-left: 35px;
+    width: 75px;
+    height: 75px;
+  }
+  .profileTyp{
+    display: flex;
+    font-size: 35px;
+    margin-left: 10px;
+    color: #FFFFFF;
+  }
+  .profileBtn{
+    display: flex;
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+  }
+  .profileImgBtn{
+    margin-left: 5px;
+  }
+}
+.profileContent{
+  background: url("../img/back3.png")no-repeat left / cover;
+  padding: 20px 30px 20px 30px;
+  height: 100vh;
+
+  .image{
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1);
+    margin-right: 25px;
+    margin-left: 60px;
+    font-size: 25px;
+  }
+  .content{
+    background-color: #2F3844;
+    padding: 20px 20px 20px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 26px;
+    color: #FFFFFF;
+    border-bottom: 2px white solid;
+  }
+
+  .content:first-child{
+    border-radius: 10px 10px 0 0;
+  }
+  .content:last-child{
+    border-radius: 0 0 10px 10px;
+    border-bottom: none;
+  }
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+.close{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  .closeBtn{
+    height: 25px;
+    width: 25px;
+    padding: 30px 30px 0 0;
+    filter: invert(31%) sepia(29%) saturate(352%) hue-rotate(173deg) brightness(95%) contrast(82%);
+  }
+}
+.inputs input {
+  width: 500px;
+  height: 50px;
+  font-size: 25px;
+  margin-top: 10px;
+  outline: none;
+  justify-items: end;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.btnInputs {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+.nav {
+  background-color: #2F3844;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 420px;
+  .test {
+    text-decoration: none;
+    color: #4D5968;
+    font-size: 35px;
+    padding: 36px 15px 36px 15px;
+  }
+
+  .test:hover {
+    color: white;
+    background-color: #293039;
+    .img {
+      filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+    }
+  }
+
+  .activeLink {
+    color: white;
+    background-color: #293039;
+    .img {
+      filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+    }
+  }
+
+  .img {
+    filter: invert(31%) sepia(29%) saturate(352%) hue-rotate(173deg) brightness(95%) contrast(82%);
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+}
+
+

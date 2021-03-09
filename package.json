@@ -1,0 +1,38 @@
+{
+  "name": "sport",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fluentui/react": "^7.145.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^12.1.7",
+    "classnames": "^2.2.6",
+    "formik": "^2.2.0",
+    "lodash": "^4.17.21",
+    "office-ui-fabric-react": "^7.145.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "sass": "^1.27.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

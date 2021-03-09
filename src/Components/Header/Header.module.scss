@@ -1,0 +1,51 @@
+.link{
+    margin-right: 60px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    background: black;
+    border-radius: 15px;
+}
+
+.link:last-child{
+    margin-right: 0;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    background: white;
+    border-radius: 15px;
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+}
+
+.header{
+    display: grid;
+    grid-template-areas: "logo text link";
+    grid-template-columns: 90px 4fr 2fr;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gridLogo{
+    grid-area: logo;
+}
+
+.gridTextLogo{
+    grid-area: text;
+}
+
+.sign{
+    grid-area: link;
+}
+
+.gridImg {
+    width: 100px;
+    height: 100px;
+}
+
+.club{
+    text-align: center;
+}

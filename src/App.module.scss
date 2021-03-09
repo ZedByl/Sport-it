@@ -1,0 +1,22 @@
+.back{
+  background: url("./Components/Content/img/back.png")no-repeat left / cover;
+  min-height: 100vh;
+}
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.NavContent {
+  display: grid;
+  grid-template-areas: "Nav Content";
+  grid-template-columns: 1.5fr 6fr;
+
+  .Nav {
+    grid-area: Nav;
+
+  }
+  .Content {
+    grid-area: Content;
+  }
+}
+
