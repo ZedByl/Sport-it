@@ -1,0 +1,109 @@
+.selectedDate{
+    width: 100%;
+    height: 100%;
+    color: #4D5968;
+    font-size: 28px;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.calendar{
+    display: none;
+}
+
+.activeShow{
+    display: block;
+    max-width: 290px;
+    background-color: #242c34;
+    border-radius: 5px;
+    position: absolute;
+    font-size: 14px;
+    top:220px;
+    margin-left: 90px;
+}
+.dropDown {
+    background-color: #242c34;
+    outline: none;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+.dropDown:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+.days {
+    color: white;
+}
+
+.headDates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+    border-bottom: 2px solid #EEE;
+}
+
+.dateShow{
+    padding-left: 10px;
+    font-size: 35px;
+}
+
+.dateShow:hover, .dateShow:focus, .dateShow:active{
+    color: #FFFFFF;
+}
+
+.imgBtn{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(269deg) brightness(104%) contrast(103%);
+}
+.imgBtn:hover {
+    filter: invert(19%) sepia(8%) saturate(1495%) hue-rotate(175deg) brightness(96%) contrast(91%);
+}
+.activeShow header button,
+.activeShow header select {
+    margin: 0 4px;
+}
+
+.activeShow th {
+    vertical-align: middle;
+    text-align: center;
+    height: 36px;
+}
+
+.activeShow .day {
+    padding: 4px 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 20px;
+}
+
+.activeShow .day:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+    color: black;
+}
+
+.activeShow .day.selected {
+    border: 2px solid #fcfcfc;
+}
+
+.activeShow .day.today {
+    background-color: #ffffff;
+    color: black;
+}
+
+.activeShow .day.today:hover {
+    background-color: #ffffff;
+}
+
+.activeShow .day.today.selected {
+    border: 2px solid lightgray;
+}
+
+

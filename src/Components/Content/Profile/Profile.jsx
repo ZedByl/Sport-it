@@ -5,11 +5,12 @@ import pen from './../img/pen.svg';
 import useProfile from './useProfile';
 import _ from 'lodash';
 import NavBar from "../../Navbar/NavBar";
+import {useHooks} from "../../Hooks/useHooks";
 
 const Profile = () => {
+    const {profile: {userData}} = useHooks()
     const {
         fields,
-        editProfileName
     } = useProfile() || {}
     return (
         <>
@@ -21,7 +22,7 @@ const Profile = () => {
                     <div className={style.profileHead}>
                         <div className={style.profileLogo}>
                             <img className={style.profileImg} src={profile} alt="profile"/>
-                            <p className={style.profileTyp}>{editProfileName}</p>
+                            <p className={style.profileTyp}>{userData.name}</p>
                             <button className={style.profileBtn}>
                                 Редактировать
                                 <img className={style.profileImgBtn} src={pen} alt="pen"/>

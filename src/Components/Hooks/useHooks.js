@@ -6,12 +6,6 @@ export const useHooks = () => useContext(Context)
 export const ContextProvider = (props) => {
     const [isModalEntry, setIsModalEntry] = useState(false)
     const [isModalReg, setIsModalReg] = useState(false)
-    const [emailProfile, setEmailProfile] = useState('');
-    const [phone, setPhone] = useState('');
-    const [height, setHeight] = useState('');
-    const [weight, setWeight] = useState('');
-    const [age, setAge] = useState('');
-    const [editProfileName, setEditProfileName] = useState('');
 
     const [userData, setUserData] = useState({
         email: '',
@@ -30,12 +24,6 @@ export const ContextProvider = (props) => {
             setIsModalReg,
         },
         profile: {
-            emailProfile, setEmailProfile,
-            phone, setPhone,
-            height, setHeight,
-            weight, setWeight,
-            age, setAge,
-            editProfileName, setEditProfileName,
             userData, setUserData
         }
     }

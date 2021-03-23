@@ -6,91 +6,43 @@ import heightImg from './../img/height.svg'
 import weightImg from './../img/weight.svg'
 import ageImg from './../img/age.svg'
 import {useHooks} from "../../Hooks/useHooks";
+
+
 const useProfile = () => {
-    const {
-        profile: {
-            emailProfile, setEmailProfile,
-            phone, setPhone,
-            height, setHeight,
-            weight, setWeight,
-            age, setAge,
-            editProfileName, setEditProfileName
-        }
-    } = useHooks()
-    const [editProfile, setEditProfile] = useState(false);
+
+    const {profile: {userData}} = useHooks() || {}
 
     const fields = [
         {
             id: 1,
             img: <img className={style.image} src={emailImg} alt=""/>,
-            textField: emailProfile,
+            textField: userData.email,
         },
         {
             id: 2,
             img: <img className={style.image} src={callImg} alt=""/>,
-            textField: phone,
+            textField: userData.phone,
         },
         {
             id: 3,
             img: <img className={style.image} src={heightImg} alt=""/>,
-            textField: height,
+            textField: userData.height,
         },
         {
             id: 4,
             img: <img className={style.image} src={weightImg} alt=""/>,
-            textField: weight,
+            textField: userData.weight,
         },
         {
             id: 5,
             className: style.content,
             img: <img className={style.image} src={ageImg} alt=""/>,
-            textField: age,
+            textField: userData.age,
         }
     ]
-    const inputs = [
-        {
-            id: 1,
-            type: "text",
-            placeholder: "Изменение имени пользователя",
-            onChange: setEditProfileName
-        },
-        {
-            id: 2,
-            type: "text",
-            placeholder: "Изменение E-mail",
-            onChange: setEmailProfile
-        },
-        {
-            id: 3,
-            type: "number",
-            placeholder: "Изменение номера телефона",
-            onChange: setPhone
-        },
-        {
-            id: 4,
-            type: "number",
-            placeholder: "Изменение роста",
-            onChange: setHeight
-        },
-        {
-            id: 5,
-            type: "number",
-            placeholder: "Изменение веса",
-            onChange: setWeight
-        },
-        {
-            id: 6,
-            type: "number",
-            placeholder: "Изменение возраста",
-            onChange: setAge
-        }
-    ]
+
     return {
-        editProfile,
-        setEditProfile,
-        fields,
-        inputs,
-        editProfileName
+        fields
     }
 
 }
