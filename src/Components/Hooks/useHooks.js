@@ -1,42 +1,42 @@
-import React, {useState, useContext, createContext} from "react";
+import React, {useState, useContext, createContext, useEffect} from "react";
 
 export const Context = createContext(null)
-export const UseHooks = () => useContext(Context)
+export const useHooks = () => useContext(Context)
 
 export const ContextProvider = (props) => {
-    const [email, setEmailReg] = useState('')
     const [isModalEntry, setIsModalEntry] = useState(false)
     const [isModalReg, setIsModalReg] = useState(false)
-    const [isAuthNavBar, setAuthNavBar] = useState(false)
-    const [loginEntry, setLoginEntry] = useState('')
-    const [loginReg, setLoginReg] = useState('')
-    const [passwordReg, setPasswordReg] = useState('')
-    const [passwordEntry, setPasswordEntry] = useState('')
+    const [emailProfile, setEmailProfile] = useState('');
+    const [phone, setPhone] = useState('');
+    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState('');
+    const [age, setAge] = useState('');
+    const [editProfileName, setEditProfileName] = useState('');
 
+    const [userData, setUserData] = useState({
+        email: '',
+        name: '',
+        phone: '',
+        height: '',
+        weight: '',
+        age: ''
 
+    })
     const constance = {
-
         values: {
             isModalEntry,
             isModalReg,
-            isAuthNavBar,
             setIsModalEntry,
             setIsModalReg,
-            setAuthNavBar,
         },
-        formLogin: {
-            loginEntry,
-            passwordEntry,
-            setLoginEntry,
-            setPasswordEntry
-        },
-        formAuth: {
-            loginReg,
-            passwordReg,
-            email,
-            setLoginReg,
-            setPasswordReg,
-            setEmailReg
+        profile: {
+            emailProfile, setEmailProfile,
+            phone, setPhone,
+            height, setHeight,
+            weight, setWeight,
+            age, setAge,
+            editProfileName, setEditProfileName,
+            userData, setUserData
         }
     }
 

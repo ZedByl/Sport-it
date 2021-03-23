@@ -11,3 +11,7 @@
     grid-area: Content;
   }
 }
+.chat {
+  display: flex;
+  flex-direction: column;
+}

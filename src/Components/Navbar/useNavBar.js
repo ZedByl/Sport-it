@@ -7,7 +7,7 @@ import Nav from "./NavBar.module.scss";
 
 
 const useNavBar = () => {
-    const [activeLink, setActiveLink] = useState('/profile')
+
 
     const routesNavBar = [
         {
@@ -37,8 +37,7 @@ const useNavBar = () => {
     ]
     return {
         routesNavBar,
-        activeLink,
-        setActiveLink
+
     }
 }
 

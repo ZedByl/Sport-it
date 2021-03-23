@@ -1,23 +1,30 @@
-import React from "react";
-import {NavLink} from "react-router-dom";
-import {UseHooks} from "../Hooks/useHooks";
+import React, {useContext, useState} from "react";
+import {NavLink, useHistory} from "react-router-dom";
+import {useHooks} from "../Hooks/useHooks";
 import FormLogin from "../Form/FormLogin";
-import {Modal} from "office-ui-fabric-react";
 import FormAuth from "../Form/FormAuth";
 import Head from '../Header/Header.module.scss';
 import logo from './../Content/img/logo.svg';
 import img from '../Content/img/Sport-IT Club.svg';
+import {AuthContext} from "../../context/AuthContext";
+import {Modal} from "../Modal/Modal";
+import LoginModal from '../Modal/LoginModal/LoginModal'
+import RegModal from "../Modal/RegModal/RegModal";
 
+const Header = (props) => {
+    const auth = useContext(AuthContext)
+    const history = useHistory()
 
-
-const Header = () => {
-    const {values} = UseHooks()
+    const logoutHandler = event => {
+        event.preventDefault()
+        auth.logout()
+        history.push('/')
+    }
+    const {values} = useHooks()
     const {
-        isAuthNavBar,
-        setIsModalEntry,
-        setIsModalReg,
-        setAuthNavBar,
         isModalEntry,
+        setIsModalReg,
+        setIsModalEntry,
         isModalReg
     } = values || {}
 
@@ -28,31 +35,28 @@ const Header = () => {
                <img className={Head.logo} src={logo} alt={'logo'}/>
             </div>
             <div className={Head.gridTextLogo}>
-                <img className={Head.gridImg} src={img} />
+                <img className={Head.gridImg} alt={'logoTxt'} src={img} />
             </div>
             <div className={Head.sign}>
-            {!isAuthNavBar ?
+            {!props.isAuth ?
                 <div>
                     <NavLink className={Head.link} to={"/"} onClick={() => setIsModalEntry(true)}>Вход</NavLink>
                     <NavLink className={Head.link} to={"/"} onClick={() => setIsModalReg(true)}>Регистрация</NavLink>
                 </div> :
                 <div >
-                    <NavLink className={Head.link} to={"/"} onClick={() => setAuthNavBar(false)}>Выход</NavLink>
+                    <NavLink className={Head.link} to={"/"} onClick={logoutHandler}>Выход</NavLink>
                 </div>}
             </div>
-            <div>
-                {isModalEntry && <Modal
-                    isOpen={isModalEntry}
-                    onDismiss={() => setIsModalEntry(false)}>
-                    <FormLogin/>
-                </Modal>}
-
-                {isModalReg && <Modal
-                    isOpen={isModalReg}
-                    onDismiss={() => setIsModalReg(false)}>
-                    <FormAuth/>
-                </Modal>}
-            </div>
+            {isModalEntry && <Modal isOpen={isModalEntry} isClose={setIsModalEntry}>
+                <div>
+                    <LoginModal/>
+                </div>
+            </Modal>}
+            {isModalReg && <Modal isOpen={isModalReg} isClose={setIsModalReg}>
+                <div>
+                    <RegModal/>
+                </div>
+            </Modal>}
         </div>
 
     )

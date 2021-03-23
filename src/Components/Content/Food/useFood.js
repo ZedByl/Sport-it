@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import DataPicker1 from "../../DataPicker/DatePicker1";
+import DataPicker1 from "../../DataPicker/DatePicker";
 import date from "./../img/date.svg"
 import tarelka from "./../img/tarelka.svg"
 import stonks from "./../img/stonks.svg"
@@ -15,8 +15,8 @@ import plus from "../img/plus.svg";
 const useFood = () => {
     const [aa, AA] = useState(false)
     let trObj =  <tr className={Food.cardBack}>
-        <p className={Food.cardBackText}>Никакие продукты ещё не были добавлины</p>
-        <img className={Food.cardBackImg} src={arrow} alt="arrow"/>
+        <td className={Food.cardBackText}>Никакие продукты ещё не были добавлины</td>
+        <td><img className={Food.cardBackImg} src={arrow} alt="arrow"/></td>
     </tr>
 
     let imgObj = <img className={Food.plus} src={plus} alt="plus" onClick={() => AA(true)}/>

@@ -1,13 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
+import styles from './generalChat.module.scss'
+import NavBar from "../../Navbar/NavBar";
 
+const GeneralChat = () => {
 
-
- const GeneralChat = () => {
 
 
     return (
-        <div>
-        </div>
+        <>
+           <div className={styles.main}>
+               <div className={styles.Nav}>
+                   <NavBar/>
+               </div>
+               <div className={styles.Content}>
+
+               </div>
+           </div>
+        </>
     )
 }
 export default GeneralChat

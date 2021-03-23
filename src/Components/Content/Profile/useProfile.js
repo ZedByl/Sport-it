@@ -5,14 +5,19 @@ import callImg from './../img/call.svg'
 import heightImg from './../img/height.svg'
 import weightImg from './../img/weight.svg'
 import ageImg from './../img/age.svg'
+import {useHooks} from "../../Hooks/useHooks";
 const useProfile = () => {
-    const [emailProfile, setEmailProfile] = useState('nik.cet@mail.ru');
-    const [phone, setPhone] = useState('+7(921)-125-40-94');
-    const [height, setHeight] = useState('181');
-    const [weight, setWeight] = useState('120кг');
-    const [age, setAge] = useState('23');
+    const {
+        profile: {
+            emailProfile, setEmailProfile,
+            phone, setPhone,
+            height, setHeight,
+            weight, setWeight,
+            age, setAge,
+            editProfileName, setEditProfileName
+        }
+    } = useHooks()
     const [editProfile, setEditProfile] = useState(false);
-    const [editProfileName, setEditProfileName] = useState('Андрей Андреев');
 
     const fields = [
         {

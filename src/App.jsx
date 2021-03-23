@@ -1,35 +1,27 @@
 import React from 'react';
-import NavBar from "./Components/Navbar/NavBar";
 import Header from "./Components/Header/Header";
-import RoutePage from "./Components/RoutePage/RoutePage";
-import {UseHooks} from "./Components/Hooks/useHooks";
-import NotAuthUsersPage from "./Components/Content/NotAuthPage/NotAuthUsersPage"
 import style from './App.module.scss'
+import {useRoutes} from "./routes";
+import {useAuth} from "./hooks/auth.hook";
+import {AuthContext} from "./context/AuthContext";
+import { ToastContainer} from 'react-toastify';
 
 const App = () => {
-    const {values} = UseHooks()
-    const {isAuthNavBar} = values
-
+    const {token, login, logout, userId} = useAuth()
+    const isAuthenticated = !!token
+    const routes = useRoutes(isAuthenticated)
     return (
-        <>
-            <div className={style.back}>
-                <div className={style.wrapper}>
-                    <Header/>
-                </div>
-
-                {!isAuthNavBar && <NotAuthUsersPage/>}
-
-                <div className={style.NavContent}>
-                    <div className={style.Nav}>
-                        {isAuthNavBar && <> <NavBar/> </>}
+        <AuthContext.Provider value={{
+            token, login, logout, userId, isAuthenticated
+        }}>
+            <ToastContainer/>
+                <div className={style.back}>
+                    <div className={style.wrapper}>
+                        <Header isAuth={isAuthenticated}/>
                     </div>
-                    <div className={style.Content}>
-                        {isAuthNavBar && <> <RoutePage/> </>}
-                    </div>
+                        {routes}
                 </div>
-
-            </div>
-        </>
+        </AuthContext.Provider>
     )
 }
 
