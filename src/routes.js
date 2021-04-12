@@ -11,18 +11,10 @@ export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
         return (
             <Switch>
-                <Route path="/profile" exact>
-                    <Profile />
-                </Route>
-                <Route path="/fit" exact>
-                    <FoodNote />
-                </Route>
-                <Route path="/chat" exact>
-                    <Chat />
-                </Route>
-                <Route path="/generalChat" exact>
-                    <GeneralChat />
-                </Route>
+                <Route path="/profile" exact component={Profile} />
+                <Route path="/fit" exact component={FoodNote}/>
+                <Route path="/chat" exact component={Chat} />
+                <Route path="/generalChat" exact component={GeneralChat} />
                 <Redirect to="/profile" />
             </Switch>
         )

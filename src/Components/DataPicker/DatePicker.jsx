@@ -1,12 +1,10 @@
 import React from "react";
-import styles from './DataPicker.module.scss'
-
+import _ from 'lodash'
+import useDatePicker from "./useDatePicker";
 import cn from 'classnames';
 import next from './../Content/img/next.svg'
 import prev from './../Content/img/prev.svg'
-import _ from 'lodash'
-import useDatePicker from "./useDatePicker";
-
+import styles from './DataPicker.module.scss'
 
 const DatePicker = () => {
     const {

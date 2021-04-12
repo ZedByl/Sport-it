@@ -1,58 +1,52 @@
-import React from "react"
+import React, {useState, useContext} from "react"
 import {useHooks} from "../../Hooks/useHooks";
+import {useHttp} from "../../../hooks/http.hook";
+import {AuthContext} from "../../../context/AuthContext";
 import styles from "../modal.module.scss";
+
 
 const ProfileModal = () => {
 
-    const {profile: {setUserData}} = useHooks() || {}
+    const {profile: {userData, setUserData,isModalProfile, setIsModalProfile}} = useHooks() || {}
 
+    const {request, loading} = useHttp()
 
+    const [form, setForm] = useState({
+        _id: '',
+        name: '',
+        email: '',
+        phone: '',
+        height: '',
+        weight: '',
+        age: ''
+    })
 
+    const userDataLS = JSON.parse(localStorage.getItem('userData'))
+    const id = userDataLS.userId
+
+    const changeHandler = event => {
+        setForm({...form, [event.target.name]: event.target.value, _id: id})
+    }
     const profileHandler = async() =>{
         try {
+            console.log(form)
+            console.log(id)
+            const data = await request('api/data/update', 'POST', {...form})
+            console.log(data.message)
+            // data.status === 202 && setUserData({
+            //         name: form.name,
+            //         phone: form.phone,
+            //         height: form.height,
+            //         weight: form.weight,
+            //         age: form.age
+            //     })
 
-        }catch (e){
+            setIsModalProfile(false)
+        } catch (e){
 
         }
     }
-    const inputs = [
-        {
-            id: 1,
-            type: "text",
-            placeholder: "Изменение имени пользователя",
-            onChange: setUserData.name
-        },
-        {
-            id: 2,
-            type: "text",
-            placeholder: "Изменение E-mail",
-            onChange: setUserData.email
-        },
-        {
-            id: 3,
-            type: "number",
-            placeholder: "Изменение номера телефона",
-            onChange: setUserData.phone
-        },
-        {
-            id: 4,
-            type: "number",
-            placeholder: "Изменение роста",
-            onChange: setUserData.height
-        },
-        {
-            id: 5,
-            type: "number",
-            placeholder: "Изменение веса",
-            onChange: setUserData.weight
-        },
-        {
-            id: 6,
-            type: "number",
-            placeholder: "Изменение возраста",
-            onChange: setUserData.age
-        }
-    ]
+
     return(
         <>
             <h2>Редактировать профиль</h2>
@@ -64,7 +58,7 @@ const ProfileModal = () => {
                         type="text"
                         name="name"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="name">Фамилия и имя</label>
                 </div>
 
@@ -74,7 +68,7 @@ const ProfileModal = () => {
                         type="text"
                         name="email"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="email">E-mail</label>
                 </div>
 
@@ -84,7 +78,7 @@ const ProfileModal = () => {
                         type="text"
                         name="phone"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="phone">Номер телефона</label>
                 </div>
 
@@ -94,7 +88,7 @@ const ProfileModal = () => {
                         type="text"
                         name="height"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="height">Рост</label>
                 </div>
 
@@ -104,7 +98,7 @@ const ProfileModal = () => {
                         type="text"
                         name="weight"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="weight">Вес</label>
                 </div>
 
@@ -114,7 +108,7 @@ const ProfileModal = () => {
                         type="text"
                         name="age"
                         required="off"
-                        onChange={}/>
+                        onChange={changeHandler}/>
                     <label htmlFor="age">Возраст</label>
                 </div>
 
@@ -123,7 +117,7 @@ const ProfileModal = () => {
                     <button
                         className={styles.btn}
                         style={{marginRight: 10}}
-                        disabled={}
+                        disabled={loading}
                         onClick={profileHandler}
                     >
                         Сохранить изменения

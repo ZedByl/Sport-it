@@ -5,7 +5,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  min-width: 420px;
+  min-width: 450px;
+  max-width: 450px;
   .test {
     text-decoration: none;
     color: #4D5968;

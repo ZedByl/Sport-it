@@ -12,7 +12,7 @@ const LoginModal = () => {
             setIsModalEntry
         },
         profile: {
-            userData, setUserData
+            setUserData
         }
     } = useHooks() || {}
     const auth = useContext(AuthContext)
@@ -43,7 +43,7 @@ const LoginModal = () => {
                 weight: data.weight,
                 age: data.age
             }
-            auth.login(data.token, data.userId, profileData)
+            auth.login(data.token, data.userId)
             setIsModalEntry(false)
         } catch (e) {
         }

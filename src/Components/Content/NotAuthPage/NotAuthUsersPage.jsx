@@ -1,7 +1,7 @@
 import React from "react";
-import style from './NotAuthUsersPage.module.scss'
 import {NavLink} from "react-router-dom";
 import {useHooks} from "../../Hooks/useHooks";
+import style from './NotAuthUsersPage.module.scss'
 import img from "../img/Sport-IT Club.svg";
 import salmon from "../img/img.png"
 

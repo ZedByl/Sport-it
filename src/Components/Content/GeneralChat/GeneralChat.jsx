@@ -10,7 +10,6 @@ const GeneralChat = () => {
         <>
            <div className={styles.main}>
                <div className={styles.Nav}>
-                   <NavBar/>
                </div>
                <div className={styles.Content}>
 

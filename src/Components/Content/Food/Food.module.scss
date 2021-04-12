@@ -24,19 +24,11 @@
     height: 75px;
   }
 }
-.main{
-  display: grid;
-  grid-template-areas: "Nav Content";
-  grid-template-columns: 1.5fr 6fr;
 
-  .Nav {
-    grid-area: Nav;
-
-  }
-  .Content {
-    grid-area: Content;
-  }
+.Content {
+   width: 100%;
 }
+
 
 // Head End //
 

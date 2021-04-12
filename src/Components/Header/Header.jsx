@@ -3,13 +3,15 @@ import {NavLink, useHistory} from "react-router-dom";
 import {useHooks} from "../Hooks/useHooks";
 import FormLogin from "../Form/FormLogin";
 import FormAuth from "../Form/FormAuth";
-import Head from '../Header/Header.module.scss';
-import logo from './../Content/img/logo.svg';
-import img from '../Content/img/Sport-IT Club.svg';
 import {AuthContext} from "../../context/AuthContext";
 import {Modal} from "../Modal/Modal";
 import LoginModal from '../Modal/LoginModal/LoginModal'
 import RegModal from "../Modal/RegModal/RegModal";
+
+import Head from '../Header/Header.module.scss';
+import logo from './../Content/img/logo.svg';
+import img from '../Content/img/Sport-IT Club.svg';
+
 
 const Header = (props) => {
     const auth = useContext(AuthContext)

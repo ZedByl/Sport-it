@@ -6,7 +6,7 @@ export const useHooks = () => useContext(Context)
 export const ContextProvider = (props) => {
     const [isModalEntry, setIsModalEntry] = useState(false)
     const [isModalReg, setIsModalReg] = useState(false)
-
+    const [isModalProfile, setIsModalProfile] = useState(false)
     const [userData, setUserData] = useState({
         email: '',
         name: '',
@@ -24,7 +24,8 @@ export const ContextProvider = (props) => {
             setIsModalReg,
         },
         profile: {
-            userData, setUserData
+            userData, setUserData,
+            isModalProfile, setIsModalProfile
         }
     }
 
