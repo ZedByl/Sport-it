@@ -1,8 +1,18 @@
 .dialogs {
-  width: 300px;
+  width: 320px;
+  height: 100%;
+  overflow: auto;
   &__item {
     display: flex;
-    margin-bottom: 20px;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+
+    &:active,
+    &:hover {
+      background-color: #FFFFFF;
+    }
+
     $item: &;
 
     &-avatar {
@@ -47,6 +57,11 @@
           font-size: 16px;
           flex: 1;
           margin-bottom: 6px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 100px;
+          height: 1.2em;
+          white-space: nowrap;
         }
         span {
           opacity: 0.5;

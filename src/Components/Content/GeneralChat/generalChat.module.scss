@@ -2,7 +2,10 @@
   display: grid;
   grid-template-areas: "Nav Content";
   grid-template-columns: 1.5fr 6fr;
-
+  width: 100%;
+  background: url("../img/back3.png")no-repeat left / cover;
+  height: 100vh;
+  padding: 10px 20px 20px 20px;
   .Nav {
     grid-area: Nav;
 

@@ -1,4 +1,5 @@
 .message {
+  padding: 10px 20px 10px 20px;
   $self: &;
 
   &__content {
@@ -15,7 +16,6 @@
       width: 33px;
       height: 33px;
       margin-right: 13px;
-      margin-left: 10px;
     }
   }
 
@@ -54,7 +54,7 @@
 
   &__icon-readed {
     position: absolute;
-    bottom: 25px;
+    bottom: 10px;
     left: -25px;
   }
 

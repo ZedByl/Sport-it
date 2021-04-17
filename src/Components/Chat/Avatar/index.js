@@ -5,7 +5,9 @@ import generateAvatarFromHash from "../../utils/generateAvatarFromHash.js"
 
 import "./Avatar.scss"
 
-
+function reverseString (str) {
+  return str.split("").reverse().join("")
+}
 
 const Avatar = ({ user }) => {
   if (user.avatar) {
@@ -17,7 +19,8 @@ const Avatar = ({ user }) => {
       />
     );
   } else {
-    const { color, colorLighten } = generateAvatarFromHash(user._id)
+    const revers = reverseString(user._id)
+    const { color, colorLighten } = generateAvatarFromHash(revers)
     const firstChar = user.fullName[0].toUpperCase()
     return <div
       style={{
@@ -31,8 +34,5 @@ const Avatar = ({ user }) => {
 
 
 
-Avatar.propTypes = {
-
-};
 
 export default Avatar;

@@ -1,0 +1,48 @@
+.chat-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  padding: 20px;
+  background-color: #FFFFFF;
+
+  button {
+    border: 0;
+    background: transparent;
+  }
+
+  &__smile-btn {
+
+    margin-right: 15px;
+
+  }
+
+  &__action {
+    display: flex;
+    img {
+      margin-left: 15px;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  img {
+    cursor: pointer;
+    opacity: .4;
+    width: 25px;
+    height: 25px;
+    transition: opacity .15s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+}

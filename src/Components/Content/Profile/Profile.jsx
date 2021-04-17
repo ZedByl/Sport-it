@@ -9,17 +9,18 @@ import profile from './../img/profile.svg';
 import pen from './../img/pen.svg';
 
 const Profile = () => {
-    const {profile: {userData, isModalProfile, setIsModalProfile}} = useHooks()
+    const {profile: { isModalProfile, setIsModalProfile}} = useHooks()
     const {
-        fields,
+        fields, userDataProfile
     } = useProfile() || {}
+
     return (
         <>
                 <div className={style.Content}>
                     <div className={style.profileHead}>
                         <div className={style.profileLogo}>
                             <img className={style.profileImg} src={profile} alt="profile"/>
-                            <p className={style.profileTyp}>{userData.name}</p>
+                            <p className={style.profileTyp}>{userDataProfile.name}</p>
                             <button className={style.profileBtn} onClick={() => {setIsModalProfile(true)}}>
                                 Редактировать
                                 <img className={style.profileImgBtn} src={pen} alt="pen"/>

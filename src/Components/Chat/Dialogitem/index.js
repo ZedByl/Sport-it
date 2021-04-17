@@ -43,9 +43,4 @@ const DialogItem = ({ user, unRead, created_at, text, isMe }) => (
 );
 
 
-
-DialogItem.propTypes = {
-
-};
-
 export default DialogItem;

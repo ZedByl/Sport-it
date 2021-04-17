@@ -35,14 +35,6 @@ const LoginModal = () => {
         try {
             const data = await request('/api/auth/login', 'POST', {...form})
             setUserData({})
-            const profileData = {
-                email: data.email,
-                name: data.name,
-                phone: data.phone,
-                height: data.height,
-                weight: data.weight,
-                age: data.age
-            }
             auth.login(data.token, data.userId)
             setIsModalEntry(false)
         } catch (e) {

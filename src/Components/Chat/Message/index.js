@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
-import Time from "../Time/index"
-import MessageStatus from "../MessageStatus/index";
-import convertCurrentTime from "../../utils/convertCurrentTime.js";
+import Time from "../Time"
+import MessageStatus from "../MessageStatus";
+import convertCurrentTime from "../utils/convertCurrentTime.js";
 
-import waveSVG from "../Content/img/Combined Shape.svg"
-import playSVG from "../Content/img/play.svg"
-import pauseSVG from "../Content/img/pause.svg"
+import waveSVG from "../../Content/img/Combined Shape.svg"
+import playSVG from "../../Content/img/play.svg"
+import pauseSVG from "../../Content/img/pause.svg"
 
 import "./Message.scss"
 

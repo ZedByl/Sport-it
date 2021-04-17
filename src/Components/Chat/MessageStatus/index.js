@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import readedSvg from "../Content/img/checked.svg";
-import noReadedSvg from "../Content/img/noChecked.svg";
+import readedSvg from "../../Content/img/checked.svg";
+import noReadedSvg from "../../Content/img/noChecked.svg";
 
 
 const MessageStatus = ({ isMe, isRead, }) =>

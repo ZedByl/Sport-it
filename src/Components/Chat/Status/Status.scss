@@ -1,0 +1,23 @@
+.status {
+  display: inline-block;
+  color: #0B0B0C;
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: -13px;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 30px;
+    background-color: #d3d3d3;
+  }
+
+  &--online {
+    &::before {
+      background-color: #00c980;
+    }
+  }
+}

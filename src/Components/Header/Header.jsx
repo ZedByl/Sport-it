@@ -1,8 +1,6 @@
 import React, {useContext, useState} from "react";
 import {NavLink, useHistory} from "react-router-dom";
 import {useHooks} from "../Hooks/useHooks";
-import FormLogin from "../Form/FormLogin";
-import FormAuth from "../Form/FormAuth";
 import {AuthContext} from "../../context/AuthContext";
 import {Modal} from "../Modal/Modal";
 import LoginModal from '../Modal/LoginModal/LoginModal'
