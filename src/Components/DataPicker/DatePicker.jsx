@@ -1,6 +1,6 @@
 import React from "react";
 import _ from 'lodash'
-import useDatePicker from "./useDatePicker";
+import {useDatePicker} from "./useDatePicker";
 import cn from 'classnames';
 import next from './../Content/img/next.svg'
 import prev from './../Content/img/prev.svg'
@@ -23,8 +23,8 @@ const DatePicker = () => {
 
 
 
-
-    const handlePrevMonthButtonClick = () => {
+    const date = `${day}(${dayName}).${monthNames1[selectDay.getMonth()]}.${selectDay.getFullYear()}`
+    const handlePrevMonthButtonClick  = () => {
         if (year > 2021 || month > 0) {
             if (month <= 0) {
                 setYear(year - 1)
@@ -63,12 +63,12 @@ const DatePicker = () => {
             a.getMonth() === month &&
             a.getDate() === b)
     }
-
     return (
         <>
             <div className={styles.selectedDate}>
                 <p className={styles.dateShow} onClick={switcherDatePicker}>
-                    {day + '(' + dayName + ')' + '.' + monthNames1[selectDay.getMonth()] + '.' + selectDay.getFullYear()}</p>
+                    {date}
+                </p>
             </div>
             <div className={cn(isActive ? styles.activeShow : styles.calendar)}>
                 <header className={styles.headDates}>

@@ -1,9 +1,10 @@
-import React, {useState, useContext, createContext, useEffect} from "react";
+import React, {useState, useContext, createContext} from "react";
 
 export const Context = createContext(null)
 export const useHooks = () => useContext(Context)
 
 export const ContextProvider = (props) => {
+    const [isModalSidebar, setIsModalSidebar] = useState(false)
     const [isModalEntry, setIsModalEntry] = useState(false)
     const [isModalReg, setIsModalReg] = useState(false)
     const [isModalProfile, setIsModalProfile] = useState(false)
@@ -18,10 +19,12 @@ export const ContextProvider = (props) => {
     })
     const constance = {
         values: {
+            isModalSidebar,
             isModalEntry,
             isModalReg,
             setIsModalEntry,
             setIsModalReg,
+            setIsModalSidebar
         },
         profile: {
             userData, setUserData,

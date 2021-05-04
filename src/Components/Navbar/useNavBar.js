@@ -7,7 +7,8 @@ import Nav from "./NavBar.module.scss";
 
 
 const useNavBar = () => {
-    const [activeLink, setActiveLink] = useState('/profile')
+    const [activeLink, setActiveLink] = useState(!localStorage.getItem('nav') && '/profile')
+    localStorage.setItem('nav', activeLink)
 
     const routesNavBar = [
         {
@@ -30,7 +31,7 @@ const useNavBar = () => {
         },
         {
             id: 4,
-            name: "Груповой чат",
+            name: "Групповой чат",
             to: "/generalChat",
             img: <img className={Nav.img} src={group} alt="generalChat"/>,
         }

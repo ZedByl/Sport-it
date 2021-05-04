@@ -1,18 +1,18 @@
-import React, {useEffect, useContext, useState} from 'react'
-import {AuthContext} from "../../../context/AuthContext";
+import React, {useEffect, useState} from 'react'
 import {useMessage} from "../../../hooks/message.hook";
 import {useHttp} from "../../../hooks/http.hook";
 import {useHooks} from "../../Hooks/useHooks";
 import styles from '../modal.module.scss'
+import store from "../../Chat/redux/store";
+import userActions from "../../Chat/redux/actions/user";
 
 const RegModal = () => {
 
     const {values: {setIsModalReg}} = useHooks() || {}
-    const auth = useContext(AuthContext)
     const message = useMessage()
-    const {loading, request, error, clearError} = useHttp()
+    const {loading, error, clearError} = useHttp()
     const [form, setForm] = useState({
-        email: '', name: '', phone: '', height: '', weight: '', age: '', password: ''
+        email: '', fullname: '', phone: '', height: '', weight: '', age: '', password: ''
     })
 
     useEffect(() => {
@@ -26,9 +26,10 @@ const RegModal = () => {
 
     const regiserHandler = async () => {
         try {
-            const data = await request('/api/auth/register', 'POST', {...form})
+            const data = await store.dispatch(userActions.fetchUserRegister(form)).then()
             message(data.message)
             setIsModalReg(false)
+
         } catch (e) {
         }
     }
@@ -50,9 +51,9 @@ const RegModal = () => {
 
                 <div className={styles.card}>
                     <input
-                        id="name"
+                        id="fullname"
                         type="text"
-                        name="name"
+                        name="fullname"
                         required="off"
                         onChange={changeHandler}/>
                     <label htmlFor="name">Введите ФИО</label>

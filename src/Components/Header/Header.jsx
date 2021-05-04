@@ -1,12 +1,16 @@
-import React, {useContext, useState} from "react";
+// packages
+import React, {useContext} from "react";
 import {NavLink, useHistory} from "react-router-dom";
-import {useHooks} from "../Hooks/useHooks";
-import {AuthContext} from "../../context/AuthContext";
-import {Modal} from "../Modal/Modal";
+// components
+import Modal from "../Modal/Modal";
 import LoginModal from '../Modal/LoginModal/LoginModal'
 import RegModal from "../Modal/RegModal/RegModal";
-
-import Head from '../Header/Header.module.scss';
+// hooks
+import {useHooks} from "../Hooks/useHooks";
+import {AuthContext} from "../../context/AuthContext";
+// styles
+import style from '../Header/Header.module.scss';
+// images
 import logo from './../Content/img/logo.svg';
 import img from '../Content/img/Sport-IT Club.svg';
 
@@ -29,23 +33,23 @@ const Header = (props) => {
     } = values || {}
 
     return (
-
-        <div className={Head.header}>
-            <div className={Head.gridLogo}>
-               <img className={Head.logo} src={logo} alt={'logo'}/>
-            </div>
-            <div className={Head.gridTextLogo}>
-                <img className={Head.gridImg} alt={'logoTxt'} src={img} />
-            </div>
-            <div className={Head.sign}>
-            {!props.isAuth ?
-                <div>
-                    <NavLink className={Head.link} to={"/"} onClick={() => setIsModalEntry(true)}>Вход</NavLink>
-                    <NavLink className={Head.link} to={"/"} onClick={() => setIsModalReg(true)}>Регистрация</NavLink>
-                </div> :
-                <div >
-                    <NavLink className={Head.link} to={"/"} onClick={logoutHandler}>Выход</NavLink>
-                </div>}
+        <div className={style.header}>
+            <img className={style.logo} src={logo} alt={'logo'}/>
+            <img className={style.textLogo} alt={'logoTxt'} src={img}/>
+            <div className={style.sign}>
+                {!props.isAuth ?
+                    <div>
+                        <NavLink className={style.link} to={"/"} onClick={() => setIsModalEntry(true)}>
+                            Вход
+                        </NavLink>
+                        <NavLink className={style.link} to={"/"} onClick={() => setIsModalReg(true)}>
+                            Регистрация
+                        </NavLink>
+                    </div> :
+                    <div>
+                        <NavLink className={style.link} to={"/"} onClick={logoutHandler}>Выход</NavLink>
+                    </div>
+                }
             </div>
             {isModalEntry && <Modal isOpen={isModalEntry} isClose={setIsModalEntry}>
                 <div>
@@ -58,7 +62,6 @@ const Header = (props) => {
                 </div>
             </Modal>}
         </div>
-
     )
 }
 

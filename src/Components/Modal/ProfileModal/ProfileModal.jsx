@@ -1,13 +1,12 @@
-import React, {useState, useContext} from "react"
+import React, {useState} from "react"
 import {useHooks} from "../../Hooks/useHooks";
 import {useHttp} from "../../../hooks/http.hook";
-import {AuthContext} from "../../../context/AuthContext";
 import styles from "../modal.module.scss";
 
 
 const ProfileModal = () => {
 
-    const {profile: {userData, setUserData,isModalProfile, setIsModalProfile}} = useHooks() || {}
+    const {profile: {setIsModalProfile}} = useHooks() || {}
 
     const {request, loading} = useHttp()
 
@@ -29,18 +28,7 @@ const ProfileModal = () => {
     }
     const profileHandler = async() =>{
         try {
-            console.log(form)
-            console.log(id)
-            const data = await request('api/data/update', 'POST', {...form})
-            console.log(data.message)
-            // data.status === 202 && setUserData({
-            //         name: form.name,
-            //         phone: form.phone,
-            //         height: form.height,
-            //         weight: form.weight,
-            //         age: form.age
-            //     })
-
+            await request('api/data/update', 'POST', {...form})
             setIsModalProfile(false)
         } catch (e){
 

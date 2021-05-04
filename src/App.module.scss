@@ -1,11 +1,28 @@
-.back{
-  background: url("./Components/Content/img/back.png")no-repeat left / cover;
-  min-height: 100vh;
-}
-.wrapper{
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.navContent {
+.main {
+  background: url("./Components/Content/img/back.png") no-repeat left / cover;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  width: 1200px;
+}
+
+.navContent {
+  height: 100vh;
+  display: flex;
+  width: 1200px;
+  align-items: stretch;
+}
+
+.nav {
+  width: 30%;
+}
+
+.content {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
 }

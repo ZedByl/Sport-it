@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from "react"
 import PropTypes from "prop-types"
+import { Emoji } from 'emoji-mart'
+import reactStringReplace from 'react-string-replace'
 import classNames from "classnames"
 import Time from "../Time"
 import MessageStatus from "../MessageStatus";
 import convertCurrentTime from "../utils/convertCurrentTime.js";
+import Avatar from "../Avatar";
 
 import waveSVG from "../../Content/img/Combined Shape.svg"
 import playSVG from "../../Content/img/play.svg"
@@ -83,7 +86,6 @@ import "./Message.scss"
   }
 
 const Message = ({
-                   avatar,
                    user,
                    text,
                    date,
@@ -104,14 +106,20 @@ const Message = ({
     })}
   >
     <div className="message__content">
-      <MessageStatus isMe={isMe} isReaded={isRead}/>
+      <MessageStatus /*isMe={isMe} isRead={isRead}*/ />
       <div className="message__avatar">
-        <img src={avatar} alt={`Avatar ${user.fullName}`}/>
+        <Avatar user={user}/>
+
       </div>
       <div className="message__info">
         {(audio || text || isTyping) && (
           <div className="message__bubble">
-            {text && <p className="message__text">{text}</p>}
+            {text && (<p className="message__text">
+                {reactStringReplace(text, /:(.+?):/g, (match, i) => (
+                  <Emoji emoji={match} set="apple" size={20}/>
+                ))}
+            </p>
+            )}
             {isTyping && (
               <div className="message__typing">
                 <span/>
@@ -125,14 +133,13 @@ const Message = ({
 
         {attachments && (
           <div className="message__attachments">
-            {attachments.map(item => (
-            <div className="message__attachments-item">
+            {attachments.map((item, index) => (
+            <div key={index} className="message__attachments-item">
               <img src={item.url} alt={item.fileName}/>
             </div>
             ))}
           </div>
         )}
-
         {date && (
           <span className="message__date">
           <Time date={date} />

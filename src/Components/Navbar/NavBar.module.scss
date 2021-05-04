@@ -1,17 +1,15 @@
 .nav {
   background-color: #2F3844;
-  position: relative;
-  top: 0;
-  height: calc(100% + 0);
   display: flex;
+  height: calc(100vh - 100px);
+  width: 35%;
   flex-direction: column;
-  min-width: 450px;
-  max-width: 450px;
+  font-size: calc(12px + 5 * (100vw / 1000));
+
   .test {
     text-decoration: none;
     color: #4D5968;
-    font-size: 35px;
-    padding: 36px 15px 36px 15px;
+    padding: 10% 0;
   }
 
   .test:hover {
@@ -32,6 +30,7 @@
 
   .img {
     filter: invert(31%) sepia(29%) saturate(352%) hue-rotate(173deg) brightness(95%) contrast(82%);
+    width: 7%;
     margin-right: 10px;
     margin-left: 20px;
   }

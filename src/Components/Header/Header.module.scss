@@ -1,51 +1,40 @@
-.link{
-    margin-right: 60px;
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    background: black;
-    border-radius: 15px;
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.link:last-child{
-    margin-right: 0;
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    background: white;
-    border-radius: 15px;
+.link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  background: black;
+  border-radius: 15px;
 }
 
-.logo{
-    width: 80px;
-    height: 80px;
+.link:last-child {
+  text-decoration: none;
+  color: black;
+  background: white;
 }
 
-.header{
-    display: grid;
-    grid-template-areas: "logo text link";
-    grid-template-columns: 90px 4fr 2fr;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
+.logo {
+  width: 80px;
+  height: 80px;
 }
 
-.gridLogo{
-    grid-area: logo;
+.gridTextLogo {
+  grid-area: text;
 }
 
-.gridTextLogo{
-    grid-area: text;
+.sign {
+  margin-left: auto;
 }
 
-.sign{
-    grid-area: link;
+.textLogo {
+  width: 100px;
 }
 
-.gridImg {
-    width: 100px;
-    height: 100px;
-}
-
-.club{
-    text-align: center;
-}

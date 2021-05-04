@@ -1,79 +1,92 @@
-.header{
-  background: url("../img/back2.png")no-repeat left / cover;
+.main {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background: url("../img/back3.png") no-repeat left / cover;
+  overflow: auto;
+}
+
+.header {
+  background: url("../img/back2.png") no-repeat left / cover;
   display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-
-  .test {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    text-decoration: none;
-    color: #4D5968;
-    font-size: 35px;
-    padding: 20px 15px 20px 0;
-  }
-  .text{
-    padding-left: 10px;
-  }
-
-  .img{
-    margin-left: 35px;
-    width: 75px;
-    height: 75px;
-  }
+  padding: 10px;
 }
 
-.Content {
-   width: 100%;
+.items {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #4D5968;
+  font-size: 35px;
 }
 
+.text {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.text:hover {
+  color: #FFF;
+}
+
+.img {
+  margin-left: 35px;
+  width: 75px;
+  height: 75px;
+}
 
 // Head End //
 
-.content{
-  background: url("../img/back3.png")no-repeat left / cover;
-  height: 100vh;
-  padding: 20px 30px 20px 30px;
-  .card{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #2F3844;
-    padding: 20px 20px 20px 20px;
-    border-radius: 10px 10px 0 0;
+.content {
 
-  }
-  .contentText{
-    font-size: 26px;
-    color: #FFFFFF;
+  padding: 3%;
+}
+
+.table {
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #2F3844;
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+.contentText {
+  font-size: 26px;
+  color: #FFFFFF;
+  margin-left: 15px;
+}
+
+.plus {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.cardBack {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #293039;
+  border-radius: 0 0 10px 10px;
+  padding: 15px 20px 15px 20px;
+
+  .cardBackText {
+    font-size: 20px;
+    color: #4D5968;
     margin-left: 15px;
   }
-  .plus{
-    margin-left: auto;
-    margin-right: 10px;
-  }
-  .cardBack{
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    background-color: #293039;
-    border-radius:  0 0 10px 10px;
-    padding: 15px 20px 15px 20px;
-    .cardBackText{
-      font-size: 20px;
-      color: #4D5968;
-      margin-left: 15px;
-    }
-    .cardBackImg{
-      width: 20px;
-      height: 20px;
-      margin-right: 20px;
-      margin-left: auto;
-    }
-  }
-  .cardBack td {
-    margin-left: 150px;
+
+  .cardBackImg {
+    width: 20px;
+    height: 20px;
   }
 }
+
+.cardBack td {
+  margin-left: 150px;
+}
+

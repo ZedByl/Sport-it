@@ -8,6 +8,10 @@
     margin-bottom: 0;
     cursor: pointer;
 
+    &--selected {
+      background-color: #f3f7ff;
+    }
+
     &:active,
     &:hover {
       background-color: #FFFFFF;

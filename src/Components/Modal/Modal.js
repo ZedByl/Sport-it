@@ -3,7 +3,7 @@ import cancel from '../Content/img/cancel.svg'
 import styles from './modal.module.scss'
 
 
-export const Modal = ({children, isOpen, isClose}) => {
+const Modal = ({children, isOpen, isClose}) => {
 
     return (
         <>
@@ -17,4 +17,4 @@ export const Modal = ({children, isOpen, isClose}) => {
         </>
     )
 }
-
+export default Modal

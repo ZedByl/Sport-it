@@ -6,7 +6,7 @@ import "./Dialogs.scss"
 
 
 
-const Dialogs = ({ items, userId }) => (
+const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId, onSelectDialog }) => (
   <div className="dialogs">
     <div className="dialogs__search">
       <input
@@ -20,10 +20,18 @@ const Dialogs = ({ items, userId }) => (
     </div>
     {items.length ? (
       orderBy (items, ["created_at"], ["desc"]).map( item => (
-        <DialogItem key={item._id} isMe={item.user._id === userId} {...item} />
+        <DialogItem
+          onSelect={onSelectDialog}
+          key={item._id}
+          isMe={item.author._id === userId}
+          сurrentDialogId={currentDialogId}
+          {...item}
+          userId={userId}
+          item={item}
+        />
     ))
     ) : (
-      <p>Ничего не найдено</p>
+      <p className="dialogs__search-null">Ничего не найдено</p>
     )}
   </div>
 );

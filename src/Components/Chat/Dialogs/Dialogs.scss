@@ -10,9 +10,9 @@
         box-shadow: none;
       }
     }
-  }
-  p {
-    display: flex;
-    justify-content: center;
+    &-null {
+      display: flex;
+      justify-content: center;
+    }
   }
 }

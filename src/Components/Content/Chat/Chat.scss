@@ -13,7 +13,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px;
+      padding: 21px;
       border-bottom: 1px solid #2F3844;
       margin-bottom: 10px;
       &-center {
@@ -32,12 +32,10 @@
       }
     }
       &-messages {
-        padding-bottom: 0;
-        overflow: auto;
         height: calc(100% - 158px);
         position: relative;
 
-        p {
+        &-history {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -53,7 +51,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 20px 19px 20px;
+      padding: 20px 20px 18px 20px;
       border-bottom: 1px solid #2F3844;
       margin-bottom: 10px;
 

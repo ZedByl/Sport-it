@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import styles from './generalChat.module.scss'
-import NavBar from "../../Navbar/NavBar";
+import './../Chat/Chat.scss'
+
 
 const GeneralChat = () => {
 
@@ -8,13 +8,7 @@ const GeneralChat = () => {
 
     return (
         <>
-           <div className={styles.main}>
-               <div className={styles.Nav}>
-               </div>
-               <div className={styles.Content}>
 
-               </div>
-           </div>
         </>
     )
 }

@@ -9,7 +9,7 @@ import {useHttp} from "../../../hooks/http.hook";
 
 
 const useProfile = () => {
-  const {request, loading} = useHttp()
+  const {request} = useHttp()
   const id = "60699b970fc97e23d0f994d9"
   const [userDataProfile, setUserDataProfile] = useState({
     email: '',
@@ -25,7 +25,6 @@ const useProfile = () => {
   const getProfileData = useCallback(async () => {
     try {
       const getDataUser = await request('/api/data/get', 'POST', {id})
-      console.log(getDataUser.data)
       setUserDataProfile(getDataUser.data)
     } catch (e) {
     }

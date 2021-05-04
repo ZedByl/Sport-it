@@ -17,6 +17,7 @@ export const useAuth = () => {
         setToken(null)
         setUserId(null)
         localStorage.removeItem(storageName)
+        localStorage.removeItem('nav')
     }, [])
 
     useEffect(() => {
