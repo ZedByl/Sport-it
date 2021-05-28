@@ -1,5 +1,7 @@
 import io from "socket.io-client";
 
-const socket = io(window.location.origin.replace("3001", "3003"));
+//https://sport-it-club.web.app
+//https://server-sport-it.herokuapp.com
+const socket = io(window.location.origin.replace("https://sport-it-club.web.app", "https://server-sport-it.herokuapp.com"));
 
 export default socket;

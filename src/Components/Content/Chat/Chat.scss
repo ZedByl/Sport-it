@@ -9,30 +9,7 @@
 
   &__dialog {
     flex: 1;
-    &-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 21px;
-      border-bottom: 1px solid #2F3844;
-      margin-bottom: 10px;
-      &-center {
-        text-align: center;
-      }
-
-      button {
-        border: 0;
-        background: transparent;
-        cursor: pointer;
-        opacity: .6;
-        transition: opacity .15s ease-in-out;
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
       &-messages {
-        height: calc(100% - 158px);
         position: relative;
 
         &-history {
@@ -80,14 +57,10 @@
 
     &-dialogs {
       height: calc(100% - 80px);
-      overflow: auto;
-
       .dialogs {
         height: 100%;
       }
     }
-
-
   }
 
   &__sidebar-header {

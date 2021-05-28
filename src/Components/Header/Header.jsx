@@ -1,6 +1,6 @@
 // packages
 import React, {useContext} from "react";
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink, Route, useHistory} from "react-router-dom";
 // components
 import Modal from "../Modal/Modal";
 import LoginModal from '../Modal/LoginModal/LoginModal'
@@ -13,17 +13,11 @@ import style from '../Header/Header.module.scss';
 // images
 import logo from './../Content/img/logo.svg';
 import img from '../Content/img/Sport-IT Club.svg';
+import NotAuthUsersPage from "../Content/NotAuthPage/NotAuthUsersPage";
 
 
 const Header = (props) => {
-    const auth = useContext(AuthContext)
-    const history = useHistory()
 
-    const logoutHandler = event => {
-        event.preventDefault()
-        auth.logout()
-        history.push('/')
-    }
     const {values} = useHooks()
     const {
         isModalEntry,
@@ -31,6 +25,12 @@ const Header = (props) => {
         setIsModalEntry,
         isModalReg
     } = values || {}
+
+    const clearClick = () =>{
+        localStorage.clear();
+        window.location.reload();
+        window.location = "https://sport-it-club.web.app/"
+    }
 
     return (
         <div className={style.header}>
@@ -47,7 +47,7 @@ const Header = (props) => {
                         </NavLink>
                     </div> :
                     <div>
-                        <NavLink className={style.link} to={"/"} onClick={logoutHandler}>Выход</NavLink>
+                        <NavLink className={style.link} to={"/"} onClick={clearClick}>Выход</NavLink>
                     </div>
                 }
             </div>

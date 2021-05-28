@@ -30,10 +30,40 @@
   margin-top: 50px;
 }
 
-.reg {
+.reg, .reg:hover {
   text-decoration: none;
   color: white;
   padding: 25px 70px 25px 70px;
   background: linear-gradient(93.19deg, #E863D2 3.52%, rgba(232, 99, 210, 0.729167) 106.07%, rgba(232, 99, 210, 0.729167) 106.09%, rgba(232, 99, 210, 0) 115.4%);
   border-radius: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .offer {
+    margin: 20px 0 0 10px;
+    position: absolute;
+    p {
+      font-size: 34px;
+      font-weight: bold;
+    }
+  }
+
+  .img {
+    margin-left: 110px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .typography {
+    margin-top: 50px;
+    z-index: 1;
+    p {
+      font-size: 25px;
+      font-weight: normal;
+    }
+  }
+
+  .but {
+    margin-top: 50px;
+  }
 }

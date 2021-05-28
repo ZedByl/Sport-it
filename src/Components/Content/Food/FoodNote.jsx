@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import _ from 'lodash'
 import style from "./Food.module.scss"
 import useFood from "./useFood";
@@ -6,9 +6,23 @@ import BreakFast from "./Components/BreakFast";
 import Dinner from "./Components/Dinner";
 import Supper from "./Components/Supper";
 import Other from "./Components/Other";
+import {connect} from "react-redux";
+import {dialogsActions} from "../../Chat/redux/actions";
+import socket from "../../Chat/core/socket";
 
-const FoodNote = () => {
+const FoodNote = (props) => {
   const { foodHeader } = useFood()
+  window.fetchDialogs = props.fetchDialogs
+
+  useEffect(() => {
+    props.fetchDialogs()
+    socket.on("SERVER:DIALOG_CREATED", props.fetchDialogs)
+    socket.on("SERVER:NEW_MESSAGE", props.fetchDialogs)
+    return () => {
+      socket.removeListener("SERVER:DIALOG_CREATED", props.fetchDialogs)
+      socket.removeListener("SERVER:NEW_MESSAGE", props.fetchDialogs)
+    }
+  }, [])
   return (
       <div className={ style.main }>
         <div className={ style.header }>
@@ -30,4 +44,7 @@ const FoodNote = () => {
       </div>
   );
 }
-export default FoodNote
+export default connect(({user, dialogs}) => ({
+  user: user.data,
+  dialogId: dialogs.items[0]
+}),  dialogsActions)(FoodNote)

@@ -1,39 +1,115 @@
-.nav {
-  background-color: #2F3844;
-  display: flex;
-  height: calc(100vh - 100px);
-  width: 35%;
-  flex-direction: column;
-  font-size: calc(12px + 5 * (100vw / 1000));
-
-  .test {
-    text-decoration: none;
-    color: #4D5968;
-    padding: 10% 0;
+.navBar {
+  .openBtn, .closeBtn {
+    display: none;
   }
 
-  .test:hover {
-    color: white;
-    background-color: #293039;
-    .img {
-      filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+  .nav {
+    background-color: #2F3844;
+    display: flex;
+    height: calc(100vh - 100px);
+    flex-direction: column;
+    font-size: calc(12px + 5 * (100vw / 1000));
+    width: 300px;
+
+    .test {
+      text-decoration: none;
+      color: #4D5968;
+      padding: 24px 0 25px 0;
     }
-  }
 
-  .activeLink {
-    color: white;
-    background-color: #293039;
-    .img {
-      filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+    .test:hover {
+      color: white;
+      background-color: #293039;
+
+      .img {
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+      }
     }
-  }
 
-  .img {
-    filter: invert(31%) sepia(29%) saturate(352%) hue-rotate(173deg) brightness(95%) contrast(82%);
-    width: 7%;
-    margin-right: 10px;
-    margin-left: 20px;
+    .activeLink {
+      color: white;
+      background-color: #293039;
+
+      .img {
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+      }
+    }
+
+    .img {
+      filter: invert(31%) sepia(29%) saturate(352%) hue-rotate(173deg) brightness(95%) contrast(82%);
+      width: 7%;
+      margin-right: 10px;
+      margin-left: 20px;
+    }
   }
 }
 
+.loading {
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 35%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .navBar {
+    .openBtn, .closeBtn {
+      display: block;
+    }
+
+    .openBtn {
+      margin: 0 3px 0 10px;
+      border: none;
+      font: inherit;
+      color: inherit;
+      background-color: transparent;
+
+    }
+
+    .nav {
+      height: 100vh;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #2F3844;
+      overflow-x: hidden;
+      transition: 0.5s;
+      margin-top: 100px;
+
+      .test {
+        text-decoration: none;
+        color: #4D5968;
+        padding: 24px 0 25px 0;
+        font-size: 17px;
+      }
+    }
+
+    .nav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #f1f1f1;
+    }
+
+
+    .openBtn {
+      transform: rotate(270deg);
+    }
+
+    .closeBtn {
+      position: absolute;
+      margin-left: 140px;
+      top: 0;
+    }
+
+  }
+}
 

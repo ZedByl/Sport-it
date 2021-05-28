@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {BrowserRouter as Router} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import App from "./App";
+
+
+import { userActions } from "./Components/Chat/redux/actions";
 import {ContextProvider} from "./Components/Hooks/useHooks";
-import {BrowserRouter as Router} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Components/Chat/redux/store";
+
+
 import 'emoji-mart/css/emoji-mart.css'
-import { userActions} from "./Components/Chat/redux/actions";
+import 'antd/dist/antd.css'
+import './index.css';
 
 store.dispatch(userActions.fetchUserData())
 

@@ -1,9 +1,12 @@
 import React from 'react'
-// import 'antd/dist/antd.css'
-import 'react-select-search/style.css'
-import {Button, Select, Input, Form} from "antd"
+
+import {Button, Select, Input} from "antd"
+
+import "./Sidebar.scss"
+
 const {Option} = Select;
 const {TextArea} = Input;
+
 
 const SidebarModal = ({
                         inputValue,
@@ -22,40 +25,44 @@ const SidebarModal = ({
 
 
   return (
-    <div>
+    <div className="modal">
       <h2>Создать диалог</h2>
       <hr/>
-          <Select
-            value={inputValue}
-            onSearch={onSearch}
-            onChange={onChangeInput}
-            onSelect={onSelectUser}
-            notFoundContent={null}
-            style={{ width: '100%', }}
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            placeholder="Введите имя пользователя или почту"
-            showSearch>
-            {options}
-          </Select>
-
-        {selectedUserId && (
-            <TextArea
-              autosize={{ minRows: 3, maxRows: 10 }}
-              onChange={onChangeTextArea}
-              value={messageText}
-            />)}
-
-          <Button
+      <div className="modal__select">
+        <Select
+          value={inputValue}
+          onSearch={onSearch}
+          onChange={onChangeInput}
+          onSelect={onSelectUser}
+          notFoundContent={null}
+          style={{width: '100%',}}
+          defaultActiveFirstOption={false}
+          showArrow={false}
+          filterOption={false}
+          placeholder="Введите имя пользователя или почту"
+          showSearch>
+          {options}
+        </Select>
+      </div>
+      {selectedUserId && (
+        <div className="modal__text">
+          <TextArea
+            autosize={{minRows: 3, maxRows: 10}}
+            onChange={onChangeTextArea}
+            value={messageText}
+          />
+        </div>
+      )}
+      <div className="modal__btn">
+        <Button
           disabled={!messageText}
           key="submit"
           type="primary"
           loading={isLoading}
           onClick={onModalOk}>
           Создать
-          </Button>
-
+        </Button>
+      </div>
 
     </div>
   )

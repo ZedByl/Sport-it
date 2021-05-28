@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Emoji } from 'emoji-mart'
+import data from 'emoji-mart/data/google.json'
 import reactStringReplace from 'react-string-replace'
 import classNames from "classnames"
 import Time from "../Time"
@@ -109,14 +110,13 @@ const Message = ({
       <MessageStatus /*isMe={isMe} isRead={isRead}*/ />
       <div className="message__avatar">
         <Avatar user={user}/>
-
       </div>
       <div className="message__info">
         {(audio || text || isTyping) && (
           <div className="message__bubble">
             {text && (<p className="message__text">
                 {reactStringReplace(text, /:(.+?):/g, (match, i) => (
-                  <Emoji emoji={match} set="apple" size={20}/>
+                 <Emoji data={data} emoji={match} set="apple" size={18}/>
                 ))}
             </p>
             )}

@@ -26,3 +26,24 @@
   width: 100%;
   height: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+  .main {
+    background: url("./Components/Content/img/back.png") no-repeat left / cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .header {
+    width: 350px;
+  }
+
+  .navContent {
+    display: flex;
+    width: 393px;
+    align-items: stretch;
+  }
+
+}

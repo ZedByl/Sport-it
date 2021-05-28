@@ -11,23 +11,23 @@ export const useRoutes = isAuthenticated => {
   if ( isAuthenticated ) {
     return (
       <Switch>
-        <Route path="/profile" exact component={ Profile }/>
         <Route path="/fit" exact component={ FoodNote }/>
+        <Route path='/fit/:name' exact component={AddFood}/>
         <Route path="/chat" exact component={ Chat }/>
         <Route path='/chat/:id' exact component={ Chat }/>
         <Route path="/generalChat" exact component={ GeneralChat }/>
-        <Route path='/fit/:name' exact component={AddFood}/>
-        <Redirect to='/profile'/>
+        <Route path="/profile" exact component={ Profile }/>
+        <Redirect to='/fit'/>
       </Switch>
     )
   }
+
 
   return (
     <Switch>
       <Route path="/" exact>
         <NotAuthUsersPage/>
       </Route>
-
     </Switch>
   )
 }

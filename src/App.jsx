@@ -10,11 +10,15 @@ import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from "./context/AuthContext";
 // styles
 import style from './App.module.scss'
+import {connect} from "react-redux";
 
-const App = () => {
+
+const App = props => {
+  const { isAuth } = props;
   const {token, login, logout, userId} = useAuth()
-  const isAuthenticated = !!token
+  const isAuthenticated = isAuth
   const routes = useRoutes(isAuthenticated)
+
 
   return (
     <AuthContext.Provider value={{
@@ -34,4 +38,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default connect(({ user }) => ({ isAuth: user.isAuth }))(App);

@@ -8,8 +8,20 @@
 .profileHead {
   background: url("../img/back2.png") no-repeat left / cover;
   display: flex;
-  padding: 7px;
+  padding: 12px;
   align-items: center;
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    .avatar {
+      border-radius: 50px;
+      width: 70px;
+      height: 70px;
+      font-size: 24px;
+      line-height: 70px;
+    }
+  }
 }
 
 .profileImg {

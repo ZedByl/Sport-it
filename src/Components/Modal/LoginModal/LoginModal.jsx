@@ -1,88 +1,104 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, {useContext} from 'react'
+import {useFormik} from 'formik';
+import {Form, Input} from "antd";
+import * as Yup from 'yup';
+
 import {AuthContext} from "../../../context/AuthContext";
-import {useMessage} from "../../../hooks/message.hook";
-import {useHttp} from "../../../hooks/http.hook";
 import {useHooks} from "../../Hooks/useHooks";
 import store from "./../../Chat/redux/store"
-import styles from '../modal.module.scss'
 import userActions from "../../Chat/redux/actions/user";
+import validateFields from "../validateFields"
+
+import styles from '../modal.module.scss'
 
 
 const LoginModal = () => {
-  const {
-    values: {
-      setIsModalEntry
-    },
-    profile: {
-      setUserData
-    }
-  } = useHooks() || {}
+
+  const {values: {setIsModalEntry}} = useHooks() || {}
   const auth = useContext(AuthContext)
-  const message = useMessage()
-  const {loading, error, clearError} = useHttp()
-  const [form, setForm] = useState({
-    email: '', password: ''
-  })
 
-  useEffect(() => {
-    message(error)
-    clearError()
-  }, [error, message, clearError])
-
-  const changeHandler = event => {
-    setForm({...form, [event.target.name]: event.target.value})
-  }
-
-  const loginHandler = async () => {
-    try {
-      setUserData({})
-      setIsModalEntry(false)
-      const data = await store.dispatch(userActions.fetchUserLogin(form)).then()
-      auth.login(data.token, data.userId)
-    } catch (e) {
-    }
-  }
-
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Неверный e-mail адрес').required('Введите e-mail'),
+      password: Yup.string()
+        .required('Введите пароль')
+        .min(10, 'Короткий пароль, минимум 10 символов.')
+        .matches(/[a-zA-Z]/, 'Недопустимые символы.')
+    }),
+    onSubmit: async () => {
+      try {
+        setIsModalEntry(false)
+        const data = await store.dispatch(userActions.fetchUserLogin(formik.values)).then()
+        auth.login(data.token, data.userId)
+      } catch (e) {
+      }
+    },
+  });
 
   return (
-    <>
+    <div>
       <h2>Вход</h2>
       <hr/>
-      <div className={styles.components}>
-        <div className={styles.card}>
-          <input
+      <div
+        className={styles.components}
+        onSubmit={formik.handleSubmit}>
+        <div className={styles.int}>
+        <Form.Item
+          className={styles.card}
+          validateStatus={validateFields(formik.errors.email)}
+          help={formik.errors.email ? <div>{formik.errors.email}</div> : null}
+          hasFeedback
+        >
+          <Input
             id="email"
-            type="text"
+            size="large"
             name="email"
-            required="off"
-            onChange={changeHandler}/>
-          <label htmlFor="email">Введите email</label>
-        </div>
+            type="email"
+            placeholder="E-Mail"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+          />
+        </Form.Item>
 
-        <div className={styles.card}>
-          <input
+        <Form.Item
+          validateStatus={validateFields(formik.errors.password)}
+          help={formik.errors.password ? <div>{formik.errors.password}</div> : null}
+          hasFeedback
+
+        >
+          <Input.Password
             id="password"
-            type="password"
+            size="large"
             name="password"
-            required="off"
-            onChange={changeHandler}/>
-          <label htmlFor="password">Введите пароль</label>
+            type="password"
+            placeholder="Пароль"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+          />
+        </Form.Item>
         </div>
 
-
-        <p>
-          <button
-            className={styles.btn}
-            style={{marginRight: 10}}
-            disabled={loading}
-            onClick={loginHandler}
-          >
-            Войти
-          </button>
-        </p>
-
+        <Form.Item>
+          {formik.isSubmitting && !formik.isValid && <span>Ошибка!</span>}
+          <p>
+            <button
+              className={styles.btn}
+              style={{marginRight: 10}}
+              disabled={formik.isSubmitting}
+              onClick={formik.handleSubmit}
+            >
+              Войти
+            </button>
+          </p>
+        </Form.Item>
       </div>
-    </>
+    </div>
   )
 }
 

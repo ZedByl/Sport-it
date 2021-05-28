@@ -7,6 +7,7 @@ import socket from "../core/socket";
 
 const MessagesBased = ({ currentDialogId, fetchMessages, addMessage, items, isLoading, user}) => {
 
+
   const messagesRef = useRef(null)
 
   const onNewMessage = data => {

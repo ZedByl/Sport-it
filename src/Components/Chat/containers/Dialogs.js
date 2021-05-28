@@ -9,7 +9,6 @@ import socket from "../core/socket";
 const DialogsBased = ({fetchDialogs, currentDialogId, setCurrentDialogId, items, userId}) => {
   const [inputValue, setValue] = useState("")
   const [filtred, setFiltredItems] = useState(Array.from(items))
-
   const onChangeInput = (value = '') => {
     setFiltredItems(
       items.filter(

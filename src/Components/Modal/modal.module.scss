@@ -17,7 +17,7 @@
   }
   .modal {
     margin: 7% auto;
-    max-width: 500px;
+    max-width: 450px;
     background: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
@@ -36,42 +36,9 @@
   }
   .card{
     position: relative;
-    margin: 30px 0 10px 0;
+    margin-top: 20px;
+  }
 
-  }
-  .card input {
-    display: block;
-    width: 250px;
-    padding: 0 10px;
-    line-height: 40px;
-    font-family: 'Roboto', sans-serif;
-    background: none;
-    border-width: 0;
-    border-bottom: 2px solid #6188D2;
-    transition: all 0.2s ease;
-  }
-  .card label {
-    position: absolute;
-    left: 13px;
-    color: #9d959d;
-    font-size: 20px;
-    font-weight: 300;
-    transform: translateY(-35px);
-    transition: all 0.2s ease;
-  }
-  .card input:focus {
-    outline: 0;
-    border-color: #836FBF;
-  }
-  .card input:focus+label, .card input:valid+label {
-    transform: translateY(-60px);
-    margin-left: -14px;
-    font-size: 14px;
-    font-weight: 400;
-    outline: 0;
-    border-color: #836FBF;
-    color: #836FBF;
-  }
   .components p {
     margin: 0;
     padding-top: 10px;
@@ -84,5 +51,8 @@
     border-width: 0;
     color: white;
     font-size: 20px;
+  }
+  .int {
+    width: 300px;
   }
 }

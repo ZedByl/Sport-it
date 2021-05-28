@@ -9,4 +9,12 @@ html {
     font-family: 'Montserrat', sans-serif;
     outline: none;
 }
+p {
+    margin-top: 0;
+    margin-bottom: 0 !important;
+}
+
+table {
+    border-collapse: separate !important;
+}
 

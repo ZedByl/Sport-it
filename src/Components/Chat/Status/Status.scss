@@ -21,3 +21,26 @@
     }
   }
 }
+.chat__dialog-header {
+  padding: 17px 20px 17px 20px;
+  border-bottom: 1px solid #2F3844;
+  margin-bottom: 10px;
+  &-center {
+    text-align: center;
+  }
+  &-fullName {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .15s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
