@@ -75,5 +75,11 @@
     width: 20px;
     height: 20px;
   }
+}
 
+@media only screen and (max-width: 600px) {
+  .home {
+    margin-left: 18px;
+    width: 340px;
+  }
 }

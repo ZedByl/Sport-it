@@ -110,4 +110,15 @@
   border: 2px solid lightgray;
 }
 
+@media only screen and (max-width: 600px) {
+  .selectedDate {
+    padding-left: 0px;
+  }
+  .dateShow {
+    padding-left: 0px;
+    font-size: 15px;
+  }
+
+}
+
 

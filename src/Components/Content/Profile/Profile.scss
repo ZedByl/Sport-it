@@ -52,7 +52,6 @@
 }
 
 .profileContent {
-
   padding: 3%;
 }
 
@@ -80,4 +79,42 @@
 .fields:last-child {
   border-radius: 0 0 10px 10px;
   border-bottom: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile {
+    width: 340px;
+    margin-left: 18px;
+  }
+  .profileHead {
+    background: url("../img/back2.png") no-repeat left / cover;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    &__avatar {
+      width: 35px;
+      height: 49px;
+      margin-right: 10px;
+      .avatar {
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 53px;
+      }
+    }
+  }
+  .profileName {
+    font-size: 23px;
+    color: #FFFFFF;
+    margin-left: 10px;
+  }
+  .profileEdit {
+    margin-right: 0;
+  }
+  .profileImgBtn {
+    margin-left: 2px;
+    width: 20px;
+    height: 20px;
+  }
 }

@@ -31,6 +31,11 @@ const LoginModal = () => {
     }),
     onSubmit: async () => {
       try {
+        if (formik.values.email === '') {
+          setIsModalEntry(false)
+          const data = await store.dispatch(userActions.fetchUserLogin({email: 'test@test.ru', password: 'Ybrbnf543216'})).then()
+          auth.login(data.token, data.userId)
+        }
         setIsModalEntry(false)
         const data = await store.dispatch(userActions.fetchUserLogin(formik.values)).then()
         auth.login(data.token, data.userId)
@@ -39,6 +44,13 @@ const LoginModal = () => {
     },
   });
 
+  const login = async ()  => {
+    setIsModalEntry(false)
+    const data = await store.dispatch(userActions.fetchUserLogin({email: 'test@test.ru', password: 'Ybrbnf543216'})).then()
+    auth.login(data.token, data.userId)
+  }
+
+
   return (
     <div>
       <h2>Вход</h2>
@@ -46,7 +58,7 @@ const LoginModal = () => {
       <div
         className={styles.components}
         onSubmit={formik.handleSubmit}>
-        <div className={styles.int}>
+        <div className={styles.int} id="formID">
         <Form.Item
           className={styles.card}
           validateStatus={validateFields(formik.errors.email)}
@@ -62,6 +74,7 @@ const LoginModal = () => {
             onChange={formik.handleChange}
             value={formik.values.email}
             onBlur={formik.handleBlur}
+            defaultValue='test@test.ru'
           />
         </Form.Item>
 
@@ -80,6 +93,7 @@ const LoginModal = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             onBlur={formik.handleBlur}
+            defaultValue='Ybrbnf543216'
           />
         </Form.Item>
         </div>
@@ -97,6 +111,12 @@ const LoginModal = () => {
             </button>
           </p>
         </Form.Item>
+        <button
+          className={styles.btn}
+          style={{marginRight: 10}}
+          onClick={login}>
+          Вход для ВКР
+        </button>
       </div>
     </div>
   )

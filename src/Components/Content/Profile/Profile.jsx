@@ -20,7 +20,7 @@ import socket from "../../Chat/core/socket";
 const Profile = ({user}) => {
   const {profile: {isModalProfile, setIsModalProfile}} = useHooks()
 
-
+  window.scrollTo(0,document.body.scrollHeight);
 
   return (
     <div className="profile">
@@ -31,7 +31,7 @@ const Profile = ({user}) => {
         <p className="profileName">{user.fullname}</p>
         <button className="profileEdit"
                 onClick={() => setIsModalProfile(true)}>
-          Редактировать
+          Изменить
           <img className="profileImgBtn" src={pen} alt="pen"/>
         </button>
       </div>

@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh + 70px);
   }
 
   .header {
@@ -42,7 +42,8 @@
 
   .navContent {
     display: flex;
-    width: 393px;
+    flex-direction: column;
+    width: 375px;
     align-items: stretch;
   }
 

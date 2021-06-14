@@ -8,6 +8,8 @@ import "./Chat.scss"
 
 const Chat = () => {
 
+  window.scrollTo(0,document.body.scrollHeight);
+
   return (
     <>
       <section className="home">

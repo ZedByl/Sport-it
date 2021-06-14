@@ -23,6 +23,9 @@ const FoodNote = (props) => {
       socket.removeListener("SERVER:NEW_MESSAGE", props.fetchDialogs)
     }
   }, [])
+
+  window.scrollTo(0,document.body.scrollHeight);
+
   return (
       <div className={ style.main }>
         <div className={ style.header }>

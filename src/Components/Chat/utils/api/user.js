@@ -19,6 +19,7 @@ export default {
         return notify()
       }
     }),
+
   getMe: () => axios.get("/user/me"),
 
   signUp: postData => axios.post("/user/signup", postData)

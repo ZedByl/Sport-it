@@ -5,6 +5,7 @@ import {NavLink, Route, useHistory} from "react-router-dom";
 import Modal from "../Modal/Modal";
 import LoginModal from '../Modal/LoginModal/LoginModal'
 import RegModal from "../Modal/RegModal/RegModal";
+import Hamburger from "../Hamburger/Hamburger";
 // hooks
 import {useHooks} from "../Hooks/useHooks";
 import {AuthContext} from "../../context/AuthContext";

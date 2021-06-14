@@ -1,8 +1,4 @@
 .navBar {
-  .openBtn, .closeBtn {
-    display: none;
-  }
-
   .nav {
     background-color: #2F3844;
     display: flex;
@@ -51,65 +47,43 @@
 }
 
 
+
 @media only screen and (max-width: 600px) {
   .navBar {
-    .openBtn, .closeBtn {
-      display: block;
-    }
-
-    .openBtn {
-      margin: 0 3px 0 10px;
-      border: none;
-      font: inherit;
-      color: inherit;
-      background-color: transparent;
-
-    }
-
+    display: flex;
+    margin-left: 18px;
     .nav {
-      height: 100vh;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #2F3844;
-      overflow-x: hidden;
-      transition: 0.5s;
-      margin-top: 100px;
-
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 70px;
+      width: 340px;
       .test {
-        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         color: #4D5968;
-        padding: 24px 0 25px 0;
-        font-size: 17px;
+        padding: 14px 5px 13px 5px;
+        font-size: 12px;
+
+      }
+      .img {
+        width: 25px;
+        height: 25px;
+        margin: 0 10px 0 10px;
+      }
+
+      .activeLink {
+        color: white;
+        background-color: #293039;
+
+        .img {
+          filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(315deg) brightness(110%) contrast(101%);
+        }
       }
     }
-
-    .nav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .nav a:hover {
-      color: #f1f1f1;
-    }
-
-
-    .openBtn {
-      transform: rotate(270deg);
-    }
-
-    .closeBtn {
-      position: absolute;
-      margin-left: 140px;
-      top: 0;
-    }
-
   }
+
 }
 

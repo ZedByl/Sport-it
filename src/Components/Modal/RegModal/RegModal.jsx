@@ -139,7 +139,7 @@ const RegModal = () => {
               size="large"
               name="password_2"
               type="password"
-              placeholder="Пароль"
+              placeholder="Повторите пароль"
               onChange={formik.handleChange}
               value={formik.values.password_2}
               onBlur={formik.handleBlur}

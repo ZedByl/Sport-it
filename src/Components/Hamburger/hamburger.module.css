@@ -1,0 +1,173 @@
+.main {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.hamburger {
+  position: fixed;
+  width: 100%;
+  height: 8rem;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.dropDown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.programSpan {
+  margin-left: 5rem;
+}
+
+.dropDownContent {
+  top: 40px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropDown:hover .dropDownContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropDownContent a:hover {
+  background-color: #391E6D;
+  padding: .5rem;
+  border-radius: 10px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-size: 35px;
+  margin-left: 5rem;
+}
+
+.enter {
+  display: flex;
+  flex-direction: column;
+  margin: auto 10% auto auto;
+}
+
+.userImg {
+  filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(61deg) brightness(111%) contrast(100%);
+  width: 30px;
+}
+
+.buttonWrapper {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.navIcon4 {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.navIcon4 span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.navIcon4 span:nth-child(1) {
+  top: 0;
+  transform-origin: left center;
+}
+
+.navIcon4 span:nth-child(2) {
+  top: 12px;
+  transform-origin: left center;
+}
+
+.navIcon4 span:nth-child(3) {
+  top: 24px;
+  transform-origin: left center;
+}
+
+.navIcon4.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 18px;
+  left: 8px;
+}
+
+.navIcon4.open span:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.navIcon4.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    margin-right: 5px;
+  }
+
+  .hamburger {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 70px;
+  }
+
+  .programSpan {
+    display: none;
+  }
+
+  .dropDownContent {
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .navLink {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .enter {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+  }
+
+  .userImg {
+    margin-left: 5px;
+  }
+
+  .buttonWrapper {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+  }
+}

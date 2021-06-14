@@ -31,5 +31,10 @@
   }
 }
 
-
+@media only screen and (max-width: 600px) {
+  .generalChat {
+    margin-left: 18px;
+    width: 340px;
+  }
+}
 

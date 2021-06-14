@@ -56,3 +56,12 @@
     width: 300px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    .modal {
+      margin: 7% auto;
+      max-width: 350px;
+    }
+  }
+}

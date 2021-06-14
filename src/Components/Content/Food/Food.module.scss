@@ -38,7 +38,6 @@
 // Head End //
 
 .content {
-
   padding: 3%;
 }
 
@@ -90,3 +89,50 @@
   margin-left: 150px;
 }
 
+@media only screen and (max-width: 600px) {
+  .main {
+    width: 340px;
+    margin-left: 18px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 340px;
+  }
+  .items {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #4D5968;
+    font-size: 30px;
+  }
+  .img {
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+  }
+  .text {
+    font-size: 15px;
+    padding-left: 0;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  .plus {
+    margin-left: auto;
+  }
+  .card {
+    padding: 10px;
+  }
+  .cardBack {
+    padding: 10px;
+    .cardBackText {
+      font-size: 10px;
+      color: #4D5968;
+      margin-left: 5px;
+    }
+  }
+  .cardBack td {
+    margin-left: 30px;
+  }
+}

@@ -2,115 +2,97 @@ import React, {useState} from "react"
 import {useHooks} from "../../Hooks/useHooks";
 import {useHttp} from "../../../hooks/http.hook";
 import styles from "../modal.module.scss";
+import {Form, Input} from "antd";
+import validateFields from "../validateFields";
+import {useFormik} from "formik";
+import * as Yup from "yup";
+import store from "../../Chat/redux/store";
+import userActions from "../../Chat/redux/actions/user";
 
 
 const ProfileModal = () => {
 
-    const {profile: {setIsModalProfile}} = useHooks() || {}
+    // const {profile: {setIsModalProfile}} = useHooks() || {}
+    //
+    // const userDataLS = JSON.parse(localStorage.getItem('userData'))
+    // const id = userDataLS.userId
+    //
+    // const changeHandler = event => {
+    //     setForm({...form, [event.target.name]: event.target.value, _id: id})
+    // }
+    // const profileHandler = async() =>{
+    //     try {
+    //         await request('api/data/update', 'POST', {...form})
+    //         setIsModalProfile(false)
+    //     } catch (e){
+    //
+    //     }
+    // }
 
-    const {request, loading} = useHttp()
-
-    const [form, setForm] = useState({
-        _id: '',
-        name: '',
-        email: '',
-        phone: '',
-        height: '',
-        weight: '',
-        age: ''
-    })
-
-    const userDataLS = JSON.parse(localStorage.getItem('userData'))
-    const id = userDataLS.userId
-
-    const changeHandler = event => {
-        setForm({...form, [event.target.name]: event.target.value, _id: id})
-    }
-    const profileHandler = async() =>{
-        try {
-            await request('api/data/update', 'POST', {...form})
-            setIsModalProfile(false)
-        } catch (e){
-
-        }
-    }
+    const {values: {setIsModalReg}} = useHooks() || {}
 
     return(
         <>
             <h2>Редактировать профиль</h2>
             <hr/>
             <div className={styles.components}>
-                <div className={styles.card}>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="name">Фамилия и имя</label>
+                <div className={styles.int}>
+                    <Form.Item>
+                        <Input
+                          size="large"
+                          name="fullname"
+                          placeholder="Ваше имя и фамилия"
+                        />
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Input
+                          size="large"
+                          name="phone"
+                          placeholder="Ваш телефон"
+                        />
+                    </Form.Item>
+
+                    <Form.Item
+                      className={styles.card}>
+                        <Input
+                          size="large"
+                          name="height"
+                          type="height"
+                          placeholder="Ваш рост"
+                        />
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Input
+                          size="large"
+                          name="weight"
+                          type="weight"
+                          placeholder="Ваш вес"
+                        />
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Input
+                          size="large"
+                          name="age"
+                          type="age"
+                          placeholder="Ваш возраст"
+                        />
+                    </Form.Item>
+
                 </div>
 
-                <div className={styles.card}>
-                    <input
-                        id="email"
-                        type="text"
-                        name="email"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="email">E-mail</label>
-                </div>
-
-                <div className={styles.card}>
-                    <input
-                        id="phone"
-                        type="text"
-                        name="phone"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="phone">Номер телефона</label>
-                </div>
-
-                <div className={styles.card}>
-                    <input
-                        id="height"
-                        type="text"
-                        name="height"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="height">Рост</label>
-                </div>
-
-                <div className={styles.card}>
-                    <input
-                        id="weight"
-                        type="text"
-                        name="weight"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="weight">Вес</label>
-                </div>
-
-                <div className={styles.card}>
-                    <input
-                        id="age"
-                        type="text"
-                        name="age"
-                        required="off"
-                        onChange={changeHandler}/>
-                    <label htmlFor="age">Возраст</label>
-                </div>
-
-
-                <p>
-                    <button
-                        className={styles.btn}
-                        style={{marginRight: 10}}
-                        disabled={loading}
-                        onClick={profileHandler}
-                    >
-                        Сохранить изменения
-                    </button>
-                </p>
+                <Form.Item>
+                    <p>
+                        <button
+                          className={styles.btn}
+                          style={{marginRight: 10}}
+                        >
+                            Сохранить изменения
+                        </button>
+                    </p>
+                </Form.Item>
 
             </div>
         </>
